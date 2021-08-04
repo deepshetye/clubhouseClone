@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Navigation from './components/shared/Navigation/Navigation';
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
-import Login from './pages/Login/Login';
 import Authenticate from './pages/Authenticate/Authenticate';
 import { useSelector } from 'react-redux';
 import Activate from './pages/Activate/Activate';
