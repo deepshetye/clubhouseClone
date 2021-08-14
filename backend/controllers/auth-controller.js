@@ -90,9 +90,9 @@ class AuthController {
         // Checking if token is valid
         let userData;
         try{
-            userData = await tokenService.validateRefreshToken(refreshTokenFromCookies);
+            userData = await tokenService.verifyRefreshToken(refreshTokenFromCookies);
         } catch(err) {
-            return res.status(401).json({message: 'Invalid Token'})
+            return res.status(401).json({message: 'Invalid Tokenhi'})
         }
 
         // Checking if token is in db
@@ -116,7 +116,7 @@ class AuthController {
         
         // Update refresh Token
         try {
-            await tokenService.updateRefreshToken(refreshToken);
+            await tokenService.updateRefreshToken(userData._id, refreshToken);
         } catch(err) {
             res.status(500).json({ message: 'Internal Error'});
         }

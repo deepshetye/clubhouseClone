@@ -7,9 +7,16 @@ import Authenticate from './pages/Authenticate/Authenticate';
 import { useSelector } from 'react-redux';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
 
 function App() {
+
+    const { loading } = useLoadingWithRefresh();
+
   return (
+    loading ? (
+        'Loading...'
+    ) : (
     <BrowserRouter>
       <Navigation />
       <Switch>
@@ -27,6 +34,7 @@ function App() {
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
+    )
   );
 }
 
